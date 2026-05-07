@@ -32,6 +32,12 @@ forecasting_service/
 README.md                Technical documentation
 VIDEO_SCRIPT.md          Video explanation and demo script
 requirements.txt         Python dependencies
+
+├── frontend/                     # Frontend (React/TypeScript)
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.ts
+└── requirements.txt
 ```
 
 ## Data
@@ -180,8 +186,17 @@ py -m py_compile forecasting_service\*.py forecasting_service\models\*.py
 ```
 
 
+#  Frontend Setup Guide
 
+##  Prerequisites
 
+- **Python 3.10+** - For backend
+- **Node.js 16+** - For frontend (npm or yarn)
+
+- cd frontend
+
+- npm install
+- npm run dev
 
 ## Version 2
 
