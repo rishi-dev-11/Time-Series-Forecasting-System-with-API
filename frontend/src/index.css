@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.18), transparent 30%),
+    linear-gradient(135deg, #020617 0%, #0f172a 100%);
+
+  color: white;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.72);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  border-radius: 24px;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #60a5fa,
+    #818cf8,
+    #c084fc
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-glow {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59,130,246,0.15), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(139,92,246,0.12), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(6,182,212,0.12), transparent 35%);
+
+  pointer-events: none;
+}
+
+.card-hover {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(96, 165, 250, 0.35);
+
+  box-shadow:
+    0 12px 42px rgba(59, 130, 246, 0.16);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+
+  color: white;
+}
+
+.section-subtitle {
+  color: #94a3b8;
+
+  margin-top: 0.5rem;
+
+  font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+/* =========================================
+   ADVANCED DASHBOARD ATMOSPHERE
+========================================= */
+
+.dashboard-glow {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main Background */
+.dashboard-glow::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(59, 130, 246, 0.18),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(139, 92, 246, 0.16),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 55% 75%,
+      rgba(6, 182, 212, 0.12),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,0.02),
+      transparent 70%
+    );
+
+  animation: backgroundFloat 18s ease-in-out infinite alternate;
+}
+
+/* Grid Overlay */
+.dashboard-glow::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+}
+
+/* Floating Orb */
+.floating-orb {
+  position: absolute;
+
+  border-radius: 9999px;
+
+  filter: blur(90px);
+
+  opacity: 0.18;
+
+  animation: orbFloat 16s ease-in-out infinite;
+}
+
+.orb-blue {
+  width: 320px;
+  height: 320px;
+
+  background: #3b82f6;
+
+  top: 5%;
+  left: -120px;
+}
+
+.orb-violet {
+  width: 380px;
+  height: 380px;
+
+  background: #8b5cf6;
+
+  right: -160px;
+  top: 30%;
+}
+
+.orb-cyan {
+  width: 260px;
+  height: 260px;
+
+  background: #06b6d4;
+
+  left: 35%;
+  bottom: -100px;
+}
+
+/* Motion */
+@keyframes backgroundFloat {
+
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+
+  100% {
+    transform: translateY(-20px) scale(1.04);
+  }
+}
+
+@keyframes orbFloat {
+
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(-30px) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(10px) translateX(-10px);
+  }
+}
+/* =========================================
+   PREMIUM SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(59,130,246,0.8),
+    rgba(139,92,246,0.8)
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(96,165,250,1),
+    rgba(167,139,250,1)
+  );
+}
+/* =========================================
+   GLOBAL SMOOTHNESS
+========================================= */
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
